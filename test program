@@ -1,0 +1,99 @@
+1.EvenOdd:
+import java.util.Scanner;
+
+public class EvenOddInterfaceDemo {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter a number: ");
+        int number = scanner.nextInt();
+
+        NumberChecker evenChecker = new EvenChecker();
+        NumberChecker oddChecker = new OddChecker();
+
+        if (evenChecker.check(number)) {
+            System.out.println(number + " is an even number.");
+        } else {
+            System.out.println(number + " is an odd number.");
+        }
+
+        if (oddChecker.check(number)) {
+            System.out.println(number + " is an odd number.");
+        }
+    }
+}
+
+2.Polygon:
+interface Polygon {
+  void getArea(int length, int breadth);
+}
+
+// implement the Polygon interface
+class Rectangle implements Polygon {
+
+  // implementation of abstract method
+  public void getArea(int length, int breadth) {
+    System.out.println("The area of the rectangle is " + (length * breadth));
+  }
+}
+
+class Main {
+  public static void main(String[] args) {
+    Rectangle r1 = new Rectangle();
+    r1.getArea(5, 6);
+  }
+}
+
+3.import java.util.Scanner;
+
+interface Animal {
+    void makeSound();
+}
+
+class Dog implements Animal {
+    @Override
+    public void makeSound() {
+        System.out.println("Woof Woof");
+    }
+}
+
+class Cat implements Animal {
+    @Override
+    public void makeSound() {
+        System.out.println("Meow Meow");
+    }
+}
+
+class Cow implements Animal {
+    @Override
+    public void makeSound() {
+        System.out.println("Moo Moo");
+    }
+}
+
+public class AnimalSoundDemo {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Choose an animal: Dog, Cat, Cow");
+        String choice = scanner.nextLine();
+
+        Animal animal;
+
+        switch (choice.toLowerCase()) {
+            case "dog":
+                animal = new Dog();
+                break;
+            case "cat":
+                animal = new Cat();
+                break;
+            case "cow":
+                animal = new Cow();
+                break;
+            default:
+                System.out.println("Invalid animal choice.");
+                return;
+        }
+
+        animal.makeSound();
+    }
+}
