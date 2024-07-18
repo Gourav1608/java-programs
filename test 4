@@ -1,0 +1,57 @@
+
+1.public class division {
+    public static void main(String[] args) {
+        try {
+            int numerator = 10;
+            int denominator = 0;
+            int result = numerator / denominator;
+        } catch (ArithmeticException e) {
+            System.out.println("Error: Cannot divide by zero.");
+        } finally {
+            System.out.println("Execution completed.");
+        }
+    }
+}
+
+2.
+public class sizeofstrimg{
+    public static void main(String []args){
+        try{
+            String str = null;
+            int[] array = new int [5];
+            System.out.println(array[10]);
+        }catch(NullPointerException e){
+            System.out.println("Error:null refernce");
+        }catch(ArrayIndexOutOfBoundsException e){
+            System.out.println("Error:array index out of bound");
+        }finally{
+            System.out.println("Excution completed");
+        }
+    }
+}
+
+3.
+class CustomException extends Exception{
+    public CustomException(String Message){
+        super(Message);
+    }
+}
+public class validatingAge{
+    public static void main(String []args){
+        try{
+            ValidateAge(15);
+        }catch(CustomException e){
+            System.out.println("caught,Custom Exception:"+ e.getMessage());
+        }finally{
+            System.out.println("Excution completed");
+        }
+    }
+         static void ValidateAge (int age) throws CustomException{
+            if(age < 18){
+                throw new CustomException("Age is less than 18");
+            }else{
+                System.out.println("Age is valid");
+            }
+        }
+    }
+
